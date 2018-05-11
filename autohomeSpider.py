@@ -1,12 +1,15 @@
 
 import scrapy
-from lxml import etree
 from autohomeSpider.items import AutohomespiderItem
 
+
 class autohomeSpider(scrapy.Spider):
+
     name = "autohomeSpider"
     allowed_domains = ["autohome.com.cn"]
+    # url地址
     base_url = u'https://club.autohome.com.cn/JingXuan/104/{}'
+    # 页码
     page = 1
     start_urls = [
         base_url.format(page)
@@ -27,6 +30,6 @@ class autohomeSpider(scrapy.Spider):
         next_href = self.base_url.format(self.page)
         next_page = response.urljoin(next_href)
         # 回调parse处理下一页的url
-        print("处理下一页：" +  next_href)
+        print("处理下一页：" + next_href)
         if(self.page < 10):
             yield scrapy.Request(next_page, callback=self.parse)

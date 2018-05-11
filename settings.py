@@ -65,7 +65,9 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
+   # 处理图片的管道
    'autohomeSpider.autopipelines.autohomePicPipeline.AutohomePicPipeline': 300,
+   # 写入Excel的管道
    'autohomeSpider.autopipelines.autohomeExcelPipeline.AutohomeExcelPipeline': 301,
 }
 
