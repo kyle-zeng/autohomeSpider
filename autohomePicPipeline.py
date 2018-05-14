@@ -13,7 +13,8 @@ class AutohomePicPipeline(object):
 
     def process_item(self, item, spider):
         # 图片保存名称
-        filename = u'{}_{}_{}.jpg'.format(item['user'], item['title'].strip(), item['pic_id'])
+        # filename = u'{}_{}_{}.jpg'.format(item['user'], item['title'].strip(), item['pic_id'])
+        filename = u'{}_{}.jpg'.format(item['user'], item['title'].strip())
         # 图片保存路径
         img_path = u'F:/python/pic/{}'.format(item['tag'])
 
